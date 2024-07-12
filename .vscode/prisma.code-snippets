@@ -1,0 +1,20 @@
+{
+  "varchar": {
+		"prefix":"qv",
+    "scope": "prisma",
+		"description":"Insert a VarChar spec",
+		"body": "@db.VarChar($1)"
+	},
+	"Row property varchar": {
+		"prefix":"qrv",
+    "scope": "prisma",
+		"description":"Insert a Property VarChar spec",
+		"body": "${1:property} String @db.VarChar($2)$0"
+	},
+	"map": {
+		"prefix": "qm",
+    "scope": "prisma",
+		"description":"Map property name",
+		"body": "@map(\"${CLIPBOARD/([a-z])([A-Z])/${1}_${2:/downcase}/g}\")"
+	}
+}

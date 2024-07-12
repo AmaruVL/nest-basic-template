@@ -1,0 +1,47 @@
+{
+  "Console log": {
+    "prefix": "qlog",
+    "body": "console.log($1)",
+    "description": "Log output to console"
+  },
+  "API operation": {
+    "prefix": "qapiop",
+    "description": "API operation",
+    "scope": "typescript",
+    "body": "@ApiOperation({ summary: '$0' })",
+  },
+  "DB constructor": {
+    "prefix": "qdb",
+    "description": "Database constructor",
+    "scope": "typescript",
+    "body": "constructor(private readonly dbService: DatabaseService) {}$0",
+  },
+  "DTO template": {
+    "prefix": "qdto",
+    "description": "DTO template",
+    "scope": "typescript",
+    "body": [
+      "import { IsString } from 'class-validator'\n",
+      "export class ${TM_FILENAME/([^.]+).*/${1:/pascalcase}/}Dto {",
+      "\t@IsString()",
+      "\t${1:property}: string",
+      "}",
+    ],
+  },
+  "Repository template": {
+    "prefix": "qrep",
+    "description": "Repository template",
+    "scope": "typescript",
+    "body": [
+      "import { Injectable } from '@nestjs/common'",
+      "import { DatabaseService } from 'src/database/database.service'\n",
+      "@Injectable()",
+      "export class ${TM_FILENAME/([^.]+).*/${1:/pascalcase}/}Repository {",
+      "\tconstructor(private readonly dbService: DatabaseService) {}\n",
+      "\tasync ${1:findOne}($2) {",
+      "\t\treturn await this.dbService$0",
+      "\t}",
+      "}",
+    ],
+  },
+}
