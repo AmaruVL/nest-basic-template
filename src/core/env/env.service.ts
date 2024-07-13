@@ -21,4 +21,8 @@ export class EnvService {
   get jwtSecret(): string {
     return this.configService.getOrThrow<string>('JWT_SECRET')
   }
+
+  get nodeEnv(): string {
+    return this.configService.getOrThrow<string>('NODE_ENV')
+  }
 }

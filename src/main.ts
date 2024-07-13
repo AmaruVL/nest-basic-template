@@ -2,7 +2,8 @@ import { NestFactory } from '@nestjs/core'
 import { Logger, ValidationPipe } from '@nestjs/common'
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
 import { SwaggerModule } from '@nestjs/swagger'
-import { EnvService, swaggerConfig } from './core'
+import { swaggerConfig } from './core/swagger/swagger.config'
+import { EnvService } from './core/env/env.service'
 import { AppModule } from './app.module'
 
 async function bootstrap() {
