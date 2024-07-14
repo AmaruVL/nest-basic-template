@@ -64,8 +64,8 @@
     "typescript": "^5.5.3"
   },
   "prisma": {
-    "schema": "src/core/database/schema.prisma",
-    "seed": "ts-node src/core/database/seed.ts"
+    "schema": "src/core/database/database.schema.prisma",
+    "seed": "ts-node src/core/database/database.seed.ts"
   },
   "lint-staged": {
     "**/*.ts": "eslint --fix"

@@ -46,7 +46,7 @@ class EnvironmentVariables {
   DATABASE_URL: string
 }
 
-export function envValidation(config: Record<string, unknown>) {
+export function envValidator(config: Record<string, unknown>) {
   const validatedConfig = plainToInstance(EnvironmentVariables, config, {
     enableImplicitConversion: true,
   })
