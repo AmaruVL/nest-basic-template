@@ -18,7 +18,7 @@ export class EnvService {
     }
   }
 
-  get jwtSecret(): string {
+  get jwtKey(): string {
     return this.configService.getOrThrow<string>('JWT_SECRET')
   }
 

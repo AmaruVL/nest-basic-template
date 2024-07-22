@@ -20,7 +20,7 @@ class EnvironmentVariables {
 
   @IsString()
   @IsNotEmpty()
-  JWT_SECRET: string
+  JWT_KEY: string
 
   @IsString()
   @IsNotEmpty()
