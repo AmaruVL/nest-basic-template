@@ -1,10 +1,12 @@
 import { APP_FILTER } from '@nestjs/core'
 import { Global, Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
-import { EnvService } from './env/env.service'
-import { envValidator } from './env/env.validation'
-import { DatabaseService } from './database/database.service'
-import { DatabaseExceptionFilter } from './database/database.exception-filter'
+import {
+  DatabaseService,
+  DatabaseExceptionFilter,
+  EnvService,
+  envValidator,
+} from 'src/core'
 
 @Global()
 @Module({

@@ -1,6 +1,6 @@
 import { DocumentBuilder } from '@nestjs/swagger'
 
-// Swagger config
+// Swagger config for API documentation
 export const swaggerConfig = new DocumentBuilder()
   .setTitle('NestJS API')
   .setDescription('The NestJS API description')
