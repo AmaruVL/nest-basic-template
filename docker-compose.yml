@@ -15,7 +15,7 @@ services:
     # working_dir: /var/www/nest-app
     environment:
       CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
-      JWT_SECRET: ${JWT_SECRET}
+      JWT_KEY: ${JWT_KEY}
       DATABASE_URL: ${DATABASE_URL}
 
   db:
