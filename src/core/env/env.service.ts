@@ -19,7 +19,7 @@ export class EnvService {
   }
 
   get jwtKey(): string {
-    return this.configService.getOrThrow<string>('JWT_SECRET')
+    return this.configService.getOrThrow<string>('JWT_KEY')
   }
 
   get nodeEnv(): string {
