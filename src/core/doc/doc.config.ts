@@ -3,7 +3,7 @@ import { DocumentBuilder, SwaggerCustomOptions } from '@nestjs/swagger'
 // Swagger custom options
 export const docUrl = 'docs'
 export const docOptions: SwaggerCustomOptions = {
-  customSiteTitle: 'Watana API Docs',
+  customSiteTitle: 'Nest API Docs',
   swaggerOptions: {
     docExpansion: 'none',
   },
