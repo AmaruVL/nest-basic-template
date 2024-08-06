@@ -1,4 +1,4 @@
-import { Catch, ArgumentsHost, HttpStatus, HttpException } from '@nestjs/common'
+import { Catch, ArgumentsHost, HttpStatus } from '@nestjs/common'
 import { BaseExceptionFilter } from '@nestjs/core'
 import { Prisma } from '@prisma/client'
 
@@ -46,9 +46,10 @@ export class DatabaseExceptionFilter extends BaseExceptionFilter {
         error: this.getExceptionMessage(exception),
       })
     } else {
-      exception instanceof HttpException
-        ? exception.getStatus()
-        : HttpStatus.INTERNAL_SERVER_ERROR
+      // TODO: Improve error handling
+      // exception instanceof HttpException
+      //   ? exception.getStatus()
+      //   : HttpStatus.INTERNAL_SERVER_ERROR
       super.catch(exception, host) // Handle unknown codes
     }
   }
