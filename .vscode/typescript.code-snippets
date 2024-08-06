@@ -4,12 +4,6 @@
     "body": "console.log($1)",
     "description": "Log output to console"
   },
-  "API operation": {
-    "prefix": "qapiop",
-    "description": "API operation",
-    "scope": "typescript",
-    "body": "@ApiOperation({ summary: '$0' })",
-  },
   "DB constructor": {
     "prefix": "qdb",
     "description": "Database constructor",
@@ -28,15 +22,15 @@
       "}",
     ],
   },
-  "Repository template": {
-    "prefix": "qrep",
-    "description": "Repository template",
+  "Service template": {
+    "prefix": "qser",
+    "description": "Service template",
     "scope": "typescript",
     "body": [
       "import { Injectable } from '@nestjs/common'",
-      "import { DatabaseService } from 'src/database/database.service'\n",
+      "import { DatabaseService } from 'src/core'\n",
       "@Injectable()",
-      "export class ${TM_FILENAME/([^.]+).*/${1:/pascalcase}/}Repository {",
+      "export class ${TM_FILENAME/([^.]+).*/${1:/pascalcase}/}Service {",
       "\tconstructor(private readonly dbService: DatabaseService) {}\n",
       "\tasync ${1:findOne}($2) {",
       "\t\treturn await this.dbService$0",
@@ -44,4 +38,21 @@
       "}",
     ],
   },
+  "Common controller import": {
+    "prefix": "qcci",
+    "description": "Common controller import",
+    "scope": "typescript",
+    "body": [
+      "import { Controller, Body, Param } from '@nestjs/common'",
+      "import { Get, Post, Patch, Delete } from 'src/common'",
+    ],
+  },
+  "Seed Prisma": {
+    "prefix": "qseed",
+    "description": "Create a seed from file name",
+    "body": [
+      "import { Prisma } from '@prisma/client'\n",
+      "export const ${1:tableName}: Prisma.${1/(.*)/${1:/capitalize}/}UncheckedCreateInput[] = [{$0}]"
+    ]
+  }
 }
