@@ -1,7 +1,7 @@
 import { DocumentBuilder, SwaggerCustomOptions } from '@nestjs/swagger'
 
 // Swagger custom options
-export const docUrl = 'docs'
+export const docPath = 'docs'
 export const docOptions: SwaggerCustomOptions = {
   customSiteTitle: 'Nest API Docs',
   swaggerOptions: {
