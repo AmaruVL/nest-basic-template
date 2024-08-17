@@ -107,7 +107,7 @@
     "description": "Create a seed from file name",
     "body": [
       "import { Prisma } from '@prisma/client'\n",
-      "export const ${1:tableName}: Prisma.${1/(.*)/${1:/capitalize}/}UncheckedCreateInput[] = [{$0}]"
+      "export const ${1:tableName}Seed: Prisma.${1/(.*)/${1:/capitalize}/}UncheckedCreateInput[] = [{$0}]"
     ]
   }
 }
