@@ -47,12 +47,67 @@
       "import { Get, Post, Patch, Delete } from 'src/common'",
     ],
   },
+    "Get controller template": {
+    "prefix": "qget",
+    "description": "Get controller template",
+    "scope": "typescript",
+    "body": [
+      "@Get('get', { summary: '${0:Get all values}' })",
+      "${1:nameFunction}() {",
+      "  return this.${TM_FILENAME/([^.]+).*/${1:/camelcase}/}Service.${1:nameFunction}()",
+      "}",
+    ],
+  },
+  "Get by Id controller template": {
+    "prefix": "qgetid",
+    "description": "Get by Id controller template",
+    "scope": "typescript",
+    "body": [
+      "@Get('get/:${2:id}', { summary: '${0:Get a value by Id}' })",
+      "${1:nameFunction}(@Param('${2:id}') ${2:id}: string) {",
+      "  return this.${TM_FILENAME/([^.]+).*/${1:/camelcase}/}Service.${1:nameFunction}(+${2:id})",
+      "}",
+    ],
+  },
+  "Post controller template": {
+    "prefix": "qpost",
+    "description": "Post controller template",
+    "scope": "typescript",
+    "body": [
+      "@Post('create', { summary: '${0:Create a value}' })",
+      "${1:nameFunction}(@Body() dto: nameDto) {",
+      "  return this.${TM_FILENAME/([^.]+).*/${1:/camelcase}/}Service.${1:nameFunction}(dto)",
+      "}",
+    ],
+  },
+  "Patch controller template": {
+    "prefix": "qpatch",
+    "description": "Patch controller template",
+    "scope": "typescript",
+    "body": [
+      "@Patch('update/:${2:id}', { summary: '${0:Update a value by Id}' })",
+      "${1:nameFunction}(@Param('${2:id}') ${2:id}: string, @Body() dto: nameDto) {",
+      "  return this.${TM_FILENAME/([^.]+).*/${1:/camelcase}/}Service.${1:nameFunction}(+${2:id}, dto)",
+      "}",
+    ],
+  },
+  "Delete controller template": {
+    "prefix": "qdel",
+    "description": "Delete controller template",
+    "scope": "typescript",
+    "body": [
+      "@Delete('delete/:${2:id}', { summary: '${0:Delete a value by Id}' })",
+      "${1:nameFunction}(@Param('${2:id}') ${2:id}: string) {",
+      "  return this.${TM_FILENAME/([^.]+).*/${1:/camelcase}/}Service.${1:nameFunction}(+${2:id})",
+      "}",
+    ],
+  },
   "Seed Prisma": {
     "prefix": "qseed",
     "description": "Create a seed from file name",
     "body": [
       "import { Prisma } from '@prisma/client'\n",
-      "export const ${1:tableName}: Prisma.${1/(.*)/${1:/capitalize}/}UncheckedCreateInput[] = [{$0}]"
+      "export const ${1:tableName}Seed: Prisma.${1/(.*)/${1:/capitalize}/}UncheckedCreateInput[] = [{$0}]"
     ]
   }
 }

@@ -3,15 +3,12 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main(): Promise<void> {
-  // Persons
-  // const PersonsPromises = personSeed.map(item =>
-  //   prisma.person.upsert({
-  //     where: { personId: item.personId },
-  //     update: {},
-  //     create: { ...item },
-  //   }),
-  // )
-  // await Promise.all(PersonsPromises)
+  /**
+   * Use upsertUnorderedData for unordered data (string IDs, non-autoincrement IDs)
+   * Use upsertOrderedData for ordered data (autoincrement IDs)
+   */
+  // await upsertUnorderedData(prisma.user, userSeed, 'userId')
+  // await upsertOrderedData(prisma.user, userSeed, 'userId')
 }
 
 main()
