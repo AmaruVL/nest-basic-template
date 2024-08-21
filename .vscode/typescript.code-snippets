@@ -22,6 +22,15 @@
       "}",
     ],
   },
+  "DTO update template": {
+    "prefix": "qdtoup",
+    "description": "DTO update template",
+    "scope": "typescript",
+    "body": [
+      "import { PartialType } from '@nestjs/swagger'\n",
+      "export class ${TM_FILENAME/([^.]+).*/${1:/pascalcase}/}Dto extends PartialType(${2:NameDto}) {$0}"
+    ],
+  },
   "Service template": {
     "prefix": "qser",
     "description": "Service template",
