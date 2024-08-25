@@ -22,10 +22,10 @@ export function createHttpDecorator(
 ): CustomHttpMethodFunction {
   return function (path?: string, options?: HttpMethodOptions): MethodDecorator {
     const decorators = [httpMethod(path)]
-    const { summary, deprecated } = options || {}
+    const { summary, description, deprecated } = options || {}
 
-    // Add summary for API documentation
-    if (summary || deprecated) decorators.push(ApiOperation({ summary, deprecated }))
+    // Add decorator for API documentation
+    decorators.push(ApiOperation({ summary, description, deprecated }))
 
     // Add auth related decorators
     // if (skipAuth === true) {
@@ -46,6 +46,7 @@ export const Delete = createHttpDecorator(HttpDelete)
 
 interface HttpMethodOptions {
   summary?: string
+  description?: string
   deprecated?: boolean
   levelAccess?: number
   skipAuth?: boolean
