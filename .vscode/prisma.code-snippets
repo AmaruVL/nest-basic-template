@@ -16,5 +16,16 @@
     "scope": "prisma",
 		"description":"Map property name",
 		"body": "@map(\"${CLIPBOARD/([a-z])([A-Z])/${1}_${2:/downcase}/g}\")"
+	},
+		"common fields": {
+		"prefix": "qaf",
+		"scope": "prisma",
+		"description":"Audit fields",
+		"body": [
+			"/// Audit fields",
+			"recordStatus RecordStatus @default(active)",
+			"createdAt DateTime @default(now())",
+			"updatedAt DateTime @updatedAt"
+		]
 	}
 }
