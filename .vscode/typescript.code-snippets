@@ -111,12 +111,22 @@
       "}",
     ],
   },
-  "Seed Prisma": {
+  "Prisma seed template": {
     "prefix": "qseed",
     "description": "Create a seed from file name",
     "body": [
       "import { Prisma } from '@prisma/client'\n",
       "export const ${1:tableName}Seed: Prisma.${1/(.*)/${1:/capitalize}/}UncheckedCreateInput[] = [{$0}]"
     ]
+  },
+  "Prisma transaction": {
+    "prefix": "qdbtran",
+    "description": "Create a prisma transaction",
+    "body": "await this.dbService.\\$transaction(async tx => {$0})"
+  },
+  "Prisma raw query": {
+    "prefix": "qdbque",
+    "description": "Create a prisma raw query",
+    "body": "await this.dbService.\\$queryRaw`$0`"
   }
 }
