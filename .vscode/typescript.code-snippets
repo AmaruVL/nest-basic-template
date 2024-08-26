@@ -4,12 +4,6 @@
     "body": "console.log($1)",
     "description": "Log output to console"
   },
-  "DB constructor": {
-    "prefix": "qdb",
-    "description": "Database constructor",
-    "scope": "typescript",
-    "body": "constructor(private readonly dbService: DatabaseService) {}$0",
-  },
   "DTO template": {
     "prefix": "qdto",
     "description": "DTO template",
@@ -114,19 +108,34 @@
   "Prisma seed template": {
     "prefix": "qseed",
     "description": "Create a seed from file name",
+    "scope": "typescript",
     "body": [
       "import { Prisma } from '@prisma/client'\n",
       "export const ${1:tableName}Seed: Prisma.${1/(.*)/${1:/capitalize}/}UncheckedCreateInput[] = [{$0}]"
     ]
   },
+  "Prisma DB constructor": {
+    "prefix": "qdb",
+    "description": "Database constructor",
+    "scope": "typescript",
+    "body": "constructor(private readonly dbService: DatabaseService) {}$0",
+  },
+  "Prisma DB service": {
+    "prefix": "qdbser",
+    "description": "Use a prisma db service",
+    "scope": "typescript",
+    "body": "await this.dbService"
+  },
   "Prisma transaction": {
     "prefix": "qdbtran",
     "description": "Create a prisma transaction",
+    "scope": "typescript",
     "body": "await this.dbService.\\$transaction(async tx => {$0})"
   },
   "Prisma raw query": {
     "prefix": "qdbque",
     "description": "Create a prisma raw query",
+    "scope": "typescript",
     "body": "await this.dbService.\\$queryRaw`$0`"
   }
 }
