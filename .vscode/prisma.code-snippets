@@ -1,5 +1,5 @@
 {
-  "varchar": {
+  "Varchar type": {
 		"prefix":"qv",
     "scope": "prisma",
 		"description":"Insert a VarChar spec",
@@ -11,13 +11,13 @@
 		"description":"Insert a Property VarChar spec",
 		"body": "${1:property} String @db.VarChar($2)$0"
 	},
-	"map": {
+	"Map from clipboard": {
 		"prefix": "qm",
     "scope": "prisma",
 		"description":"Map property name",
 		"body": "@map(\"${CLIPBOARD/([a-z])([A-Z])/${1}_${2:/downcase}/g}\")"
 	},
-		"common fields": {
+	"Audit fields": {
 		"prefix": "qaf",
 		"scope": "prisma",
 		"description":"Audit fields",
