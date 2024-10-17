@@ -50,7 +50,7 @@
       "import { Get, Post, Patch, Delete } from 'src/common'",
     ],
   },
-    "Get controller template": {
+  "Get controller template": {
     "prefix": "qget",
     "description": "Get controller template",
     "scope": "typescript",
